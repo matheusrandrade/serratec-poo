@@ -8,11 +8,12 @@ public class Contato {
 	
 	private Endereco endereco;
 	
-	private Telefone[] telefones; //ArrayList<Telefone> telefones = new ArrayList<Telefone>();
+	private ArrayList<Telefone> telefones;
 
-	public Contato (String nome, Endereco endereco) {
+	public Contato (String nome, Endereco endereco, ArrayList<Telefone> telefones) {
 		this.nome = nome;
 		this.endereco = endereco;
+		this.telefones = telefones;
 	}
 	
 	public String getNome() {
@@ -23,19 +24,18 @@ public class Contato {
 		return endereco;
 	}
 
-	public Telefone[] getTelefones() {
+	public ArrayList<Telefone> getTelefones() {
 		return telefones;
 	}
 
-	public void setTelefones(Telefone[] telefones) {
+	public void setTelefones(ArrayList<Telefone> telefones) {
 		this.telefones = telefones;
 	}
 	
 	public void mostraTelefones() {
-		 for(int i = 0; i < telefones.length; i++){
-		  	System.out.println(telefones[i].getNumero());
-		 }
-		 
+		for(Telefone i : telefones) {
+			System.out.println(String.format("Telefone: %s", i.getNumero()));
+		}
 	}
 	
 }
